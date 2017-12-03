@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <meta name="viewport content=width=device-width,user-scalable=yes">
+
+    <title>Temperature Converter</title> <!--Tab Title-->
+    <link rel="icon"
+      type="image/png"
+      href="http://fuerzadesign.com/wp-content/uploads/2014/12/favicon-1000x1000.png">
+
+    <style type=text/css>
+      body{font-family:Tahoma, Geneva, sans-serif;font-size:17px;padding:1em 1em 1em 1em;background-color: #9EA29F;}
+      p{font-size:100%;line-height:1.5em;word-spacing:.1em}
+      h1{text-align:left;font-size:122%;font-weight:700;letter-spacing:0.13em;margin: .5em 0 .4em 0;line-height:1.2em}  /* Left Alig. Heading */
+
+      #tab
+      {
+        display:inline-block; 
+        margin-left: 40px;
+      }
+
+      *{
+        margin:0px;
+        padding:0px;
+      }
+    </style>
+
+    <!-- JavaScript Starts Here -->
+    <script>
+    /** Celsius Formulas Below **/
+    function convertToCfromF() // Fahrenheit to Celsius
+    {
+        var fTempVal = parseFloat(document.getElementById('fTemp').value);
+        var cTempVal = (fTempVal - 32) * (5 / 9);
+        document.getElementById('cTemp').value = cTempVal;
+        return false;
+    }
+    function convertToCfromK() // Kelvin to Celsius
+    {
+        var kTempVal = parseFloat(document.getElementById('kTemp').value);
+        var cTempVal = (kTempVal - 273.15); // Kelvin to Celsius, need to Subtract
+        document.getElementById('cTemp').value = cTempVal;
+        return false;
+    }
+
+
+    /** Fahrenheit Formulas Below **/
+    function convertToFfromC() // Celsius to Fahrenheit
+    {
+        var cTempVal = parseFloat(document.getElementById('cTemp').value);
+        var fTempVal = (cTempVal * (9 / 5)) + 32;
+        console.log(fTempVal);
+        document.getElementById('fTemp').value = fTempVal;
+        return false;
+    }
+    function convertToFfromK() // Kelvin to Fahrenheit
+    {
+        var kTempVal = parseFloat(document.getElementById('kTemp').value);
+        var fTempVal = (kTempVal * (9 / 5)) - 459.67;
+        console.log(fTempVal);
+        document.getElementById('fTemp').value = fTempVal;
+        return false;
+    }
+
+
+    /** Kelvin Formulas Below **/
+    function convertToKfromF() // Fahrenheit to Kelvin
+    {
+        var fTempVal = parseFloat(document.getElementById('fTemp').value);
+        var kTempVal = (fTempVal + 459.67) * (5 / 9);
+        console.log(kTempVal);
+        document.getElementById('kTemp').value = kTempVal;
+        return false;
+    }
+    function convertToKfromC() // Celsius to Kelvin
+    {
+        var cTempVal = parseFloat(document.getElementById('cTemp').value);
+        var kTempVal = (cTempVal + 273.15);
+        console.log(kTempVal);
+        document.getElementById('kTemp').value = kTempVal;
+        return false;
+    }
+
+    </script>
+  </head>
+
+  <!-- ^.^ Body Starts Here -->
+  <body>
+
+    <form name="conversionForm">
+      <table border="10" bordercolor="#4b4954">
+        <tbody>
+
+          <tr> <!-- Fahrenheit Row Starts Here -->
+            <td>Fahrenheit</td>
+            <td>
+              <input name="fTemp" id="fTemp" type="text" />
+            </td>
+            <td>
+              <button type="button" onclick="convertToCfromF();return false">Convert to Celsius</button>
+            </td> <!-- End Final Coloumn for Fahrenheit -->
+            <td>
+              <button type="button" onclick="convertToKfromF();return false">Convert to Kelvin</button>
+            </td>
+          </tr>
+
+          <tr> <!-- Celsius Row Starts Here -->
+            <td>Celsius</td>
+            <td>
+              <input name="cTemp" id="cTemp" type="text" />
+            </td>
+            <td>
+              <button type="button" onclick="convertToFfromC();return false">Convert to Fahrenheit</button>
+            </td>
+            <td>
+              <button type="button" onclick="convertToKfromC();return false">Convert to Kelvin</button>
+            </td>
+          </tr>
+
+          <tr> <!-- Kelvin Row Starts Here -->
+            <td>Kelvin</td>
+            <td>
+              <input name="kTemp" id="kTemp" type="text" />
+            </td>
+            <td>
+              <button type="button" onclick="convertToFfromK();return false">Convert to Fahrenheit</button>
+            </td>
+            <td>
+              <button type="button" onclick="convertToCfromK();return false">Convert to Celsius</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </form>
+
+  </body>
+</html>
